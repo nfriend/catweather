@@ -1,0 +1,25 @@
+﻿<Window x:Class="WeatherTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <TextBlock Text="{Binding [currently][summary]}"/>
+        <TextBlock Text="{Binding [minutely][summary]}"/>
+        <TextBlock Text="{Binding [hourly][summary]}"/>
+        <TextBlock Text="{Binding [daily][summary]}"/>
+        <ListBox ItemsSource="{Binding [hourly][data]}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding [temperature]}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Window>
