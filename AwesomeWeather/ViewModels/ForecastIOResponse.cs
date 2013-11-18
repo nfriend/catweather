@@ -9,7 +9,7 @@ namespace ForecastIO
     public class ForecastIOResponse :INotifyPropertyChanged
     {
         HourForecast _selectedHour;
-        public HourForecast SelectedHour { get { return _selectedHour; } set { _selectedHour = value; PropertyChanged(this,new PropertyChangedEventArgs("SelectedHour")); } }
+        public HourForecast SelectedHour { get { return _selectedHour ?? hourly.data[0]; } set { _selectedHour = value; PropertyChanged(this, new PropertyChangedEventArgs("SelectedHour")); } }
 
         [DataMember]
         public float latitude { get; set; }

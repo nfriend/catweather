@@ -42,11 +42,30 @@
             </phone:PivotItem>
             <phone:PivotItem Header="Forecast">
                 <Grid>
-                    
-                    <ListBox Name="TimePicker" ItemsSource="{Binding hourly.data}" SelectedItem="{Binding SelectedHour}"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox Grid.Column="0" Name="TimePicker" ItemsSource="{Binding hourly.data}" SelectedItem="{Binding SelectedHour,Mode=TwoWay}" SelectionMode="Single">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding time, Converter={StaticResource unixtime2SuperShort}}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
 
-                    <UserControl DataContext="{Binding SelectedHour}">
-                        <TextBlock Text="{Binding summary}"></TextBlock>
+                    <UserControl Grid.Column="1" >
+                        <StackPanel>
+                            <StackPanel.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="FontSize" Value="72"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock Text="{Binding SelectedHour.summary}"/>
+                            <TextBlock Text="{Binding SelectedHour.temperature}"/>
+                        </StackPanel>
                     </UserControl>
                 </Grid>
             </phone:PivotItem>
