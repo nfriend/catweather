@@ -6,5 +6,4 @@ This is a serious weather app presented with internet cat pictures. It gets data
 
 You may not publish any derivatives of this software except for on github.
 
-Work Progress 
-[![Stories in Ready](https://badge.waffle.io/owen2/catweather.png?label=ready&title=Ready)](http://waffle.io/owen2/catweather)
+## Work Progress [![Stories in Ready](https://badge.waffle.io/owen2/catweather.png?label=ready&title=Ready)](http://waffle.io/owen2/catweather)
